@@ -16,5 +16,11 @@ if not _admin_id:
     sys.exit(1)
 ADMIN_ID = int(_admin_id)
 
-# Data file path
-DATA_FILE = os.environ.get("DATA_FILE", "data.json")
+# GitHub config for channels.json storage (required)
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+if not GITHUB_TOKEN:
+    print("ERROR: GITHUB_TOKEN environment variable is required.")
+    sys.exit(1)
+GITHUB_REPO = os.environ.get("GITHUB_REPO", "illyassvvv/G")
+GITHUB_FILE_PATH = os.environ.get("GITHUB_FILE_PATH", "channels.json")
+GITHUB_BRANCH = os.environ.get("GITHUB_BRANCH", "main")
